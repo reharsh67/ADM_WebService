@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using ADMLib.Student;
+using ADMLib.Clerk;
 using System.Data;
 
 [WebService(Namespace = "http://tempuri.org/")]
@@ -108,6 +109,23 @@ public class Service : System.Web.Services.WebService
     {
 
         ResetPasswordLogic DB = new ResetPasswordLogic();
+        int txt = DB.PassReset(ef);
+        return txt;
+    }
+
+    [WebMethod]
+    public int Clerk_Login(ClearkLoginFields ef)
+    {
+
+        ClerkLoginLogic DB = new ClerkLoginLogic();
+        int txt = DB.login(ef);
+        return txt;
+    }
+    [WebMethod]
+    public int Pass_Reset_Clerk(ClearkLoginFields ef)
+    {
+
+        ResetPasswordLogicClerk DB = new ResetPasswordLogicClerk();
         int txt = DB.PassReset(ef);
         return txt;
     }
