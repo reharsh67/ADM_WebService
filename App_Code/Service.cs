@@ -114,6 +114,38 @@ public class Service : System.Web.Services.WebService
         string txt = DB.PassReset(ef);
         return txt;
     }
+    [WebMethod]
+    public String Upload_Doc(DocumentFields ef)
+    {
+
+        UploadDocumentLogic DB = new UploadDocumentLogic();
+         
+        return DB.upload(ef);
+    }
+    [WebMethod]
+    public DataSet Doc_List()
+    {
+
+        UploadDocumentLogic DB = new UploadDocumentLogic();
+
+        return DB.Pre_Fill();
+    }
+    [WebMethod]
+    public DataSet State_List()
+    {
+
+        EnqueryFormLogin DB = new EnqueryFormLogin();
+
+        return DB.LoadStates();
+    }
+    [WebMethod]
+    public DataSet City_Lists(int s)
+    {
+
+        EnqueryFormLogin DB = new EnqueryFormLogin();
+
+        return DB.LoadCity(s);
+    }
 
     [WebMethod]
     public int Clerk_Login(ClearkLoginFields ef)
