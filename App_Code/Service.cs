@@ -93,6 +93,14 @@ public class Service : System.Web.Services.WebService
         return al.ARF_Fill_Logic(ef);
     }
     [WebMethod]
+    public PastEduFields CalculateMarks(PastEduFields ef)
+    {
+
+        PastEduSaveLogic al = new PastEduSaveLogic();
+
+        return al.calcuMarks(ef);
+    }
+    [WebMethod]
     public string PastEdu_Details(PastEduFields ef)
     {
 
@@ -101,10 +109,10 @@ public class Service : System.Web.Services.WebService
         return x;
     }
     [WebMethod]
-    public int Gen_Appid()
+    public int Gen_Appid(EnqueryFields ff)
     {
         EnqueryFormLogin ef = new EnqueryFormLogin();
-        return ef.Gen_AppID();
+        return ef.Gen_AppID(ff);
     }
     [WebMethod]
     public string Pass_Reset(StudLoginFields ef)
