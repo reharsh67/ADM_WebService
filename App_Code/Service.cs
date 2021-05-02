@@ -101,6 +101,14 @@ public class Service : System.Web.Services.WebService
         return al.calcuMarks(ef);
     }
     [WebMethod]
+    public string PastEdu_Details_Dip(PastEduFields ef)
+    {
+
+        PastEduSaveLogic al = new PastEduSaveLogic();
+        string x = al.Save_Past_Dip(ef);
+        return x;
+    }
+    [WebMethod]
     public string PastEdu_Details(PastEduFields ef)
     {
 
@@ -156,11 +164,11 @@ public class Service : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public int Clerk_Login(ClearkLoginFields ef)
+    public string Clerk_Login(ClearkLoginFields ef)
     {
 
         ClerkLoginLogic DB = new ClerkLoginLogic();
-        int txt = DB.login(ef);
+        string txt = DB.login(ef);
         return txt;
     }
     [WebMethod]
